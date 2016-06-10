@@ -56,6 +56,8 @@ public class GuineaPigSteps {
         caps.setCapability("browserName", System.getenv("browserName"));
         caps.setCapability("version", System.getenv("version"));
         caps.setCapability("name", scenario.getName());
+        //this is specific to Jenkins
+        caps.setCapability("build", System.getenv("BUILD_TAG"));
 
 	    driver = new RemoteWebDriver(new URL(URL), caps);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
